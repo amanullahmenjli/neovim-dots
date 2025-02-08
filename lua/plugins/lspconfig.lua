@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = { "b0o/schemastore.nvim" },
 	config = function()
 		local lspconfig = require("lspconfig")
 
@@ -31,9 +32,24 @@ return {
 			},
 		})
 
-		-- c/c++ lsp settings
-		lspconfig.clangd.setup({
+		lspconfig.denols.setup({
+			on_attach = on_attach,
+			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 		})
+
+		require("lspconfig").ts_ls.setup({})
+
+		lspconfig.jsonls.setup({
+			settings = {
+				json = {
+					schemas = require("schemastore").json.schemas(),
+					validate = { enable = true },
+				},
+			},
+		})
+
+		-- c/c++ lsp settings
+		lspconfig.clangd.setup({})
 
 		-- add astro.js LSP
 		lspconfig.astro.setup({
@@ -43,5 +59,6 @@ return {
 		})
 
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+		vim.keymap.set("n", "<s-f6>", vim.lsp.buf.rename)
 	end,
 }

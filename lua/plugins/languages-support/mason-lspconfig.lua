@@ -6,6 +6,7 @@ return {
 				-- Web dev
 				"astro",
 				"biome",
+				"denols",
 
 				-- C/C++ (temporarily disabled)
 				"clangd",
@@ -15,7 +16,7 @@ return {
 				"efm",
 			},
 			---@type boolean
-			automatic_installation = true
+			automatic_installation = true,
 		})
 	end,
 }
