@@ -7,6 +7,8 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+
+			project = vim.fn.getcwd(),
 			formatters = {
 				clangfmt = {
 					command = "clang-format",
@@ -14,7 +16,7 @@ return {
 				},
 				dartfmt = {
 					command = "dart",
-					args = "format",
+					args = "format --line-length 140 $project",
 				},
 			},
 			formatters_by_ft = {
@@ -38,12 +40,12 @@ return {
 			format_on_save = {
 				-- lsp_fallback = true,
 				async = false,
+				timeout_ms = 5000,
 			},
 		})
 
-		conform.formatters.clang_format = {
-
-			prepend_args = { "-style=", '"{IndentWidth: 4}"', "-i", "$FILENAME" },
+		conform.formatters.dart_format = {
+			prepend_args = { "--line-length 140 $project" },
 			-- The base args are { "-filename", "$FILENAME" } so the final args will be
 			-- { "-i", "2", "-filename", "$FILENAME" }
 		}
