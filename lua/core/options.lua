@@ -1,6 +1,9 @@
 -- use tabs not spaces
 vim.cmd("set noexpandtab")
 
+-- set color scheme
+vim.cmd.colorscheme("tokyonight")
+
 -- disable line wrap
 vim.cmd("set nowrap")
 
