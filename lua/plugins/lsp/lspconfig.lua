@@ -16,9 +16,6 @@ return {
 		-- HTML 
 		vim.lsp.enable("superhtml")
 
-		-- Postgresql 
-		vim.lsp.enable("postgres_lsp")
-
 		-- Typescript 
 		vim.lsp.enable("biome")
 
