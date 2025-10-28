@@ -10,13 +10,8 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 -- rename a symbol
 vim.keymap.set("n", "<f2>", vim.lsp.buf.rename)
 
--- Jump to definition
+-- jump to definition
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
+-- open fold
 vim.keymap.set("n", "f", "za")
-
-vim.keymap.set("n", "C-a", "gcc")
-
-vim.keymap.set("n", "<C-_>", function()
-	require("Comment.api").toggle.linewise.current()
-end, { noremap = true, silent = true })
