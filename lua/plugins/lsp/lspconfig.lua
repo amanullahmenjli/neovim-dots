@@ -51,11 +51,6 @@ return {
 			end,
 		})
 
-		-- Godot 
-		lspconfig.gdscript.setup({
-			cmd = { "ncat", "localhost", "6007" },
-		})
-
 		vim.lsp.enable("uv")
 
 		-- Lua 󰢱

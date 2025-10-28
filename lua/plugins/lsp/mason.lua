@@ -26,9 +26,6 @@ return {
 					-- Configurations 
 					"hyprls", -- 
 
-					-- Postgresql 
-					-- "postgrestools",
-
 					-- Web dev
 					"astro", -- 
 					"biome",
