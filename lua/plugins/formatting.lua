@@ -1,14 +1,20 @@
 return {
 	"stevearc/conform.nvim",
 
+	dependencies = { "zapling/mason-conform.nvim" },
+
 	event = { "BufReadPre", "BufNewFile" },
 
 	config = function()
 		local conform = require("conform")
+		local mason_conform = require("mason-conform")
+
+		mason_conform.setup({})
 
 		conform.setup({
-
 			project = vim.fn.getcwd(),
+
+			-- Define custom formatters
 			formatters = {
 				clangfmt = {
 					command = "clang-format",
@@ -19,35 +25,55 @@ return {
 					args = "format --line-length 140 $project",
 				},
 			},
+
 			formatters_by_ft = {
-				c = { "clangfmt" },
-				h = { "clangfmt" },
-				html = { "prettierd" },
-				css = { "prettierd" },
-				javascript = { "prettier" },
-				typescriptreact = { "prettier" },
-				typescript = { "deno_fmt" },
-				jsonc = { "prettierd" },
-				json = { "prettier" },
-				lua = { "stylua" },
-				astro = { "prettier" },
+				-- Configurations
+				jsonc = { "biome" },
+				json = { "biome" },
 				rasi = { "lsp" },
 				nix = { "nixfmt" },
+				yaml = { "yamlfmt" },
+
+				sql = { "sqlfmt" },
+
+				-- Scripting
+				bash = { "beautysh" },
+				sh = { "beautysh" },
 				fish = { "fish_indent" },
-				yaml = { "yamlfix" },
-				dart = { "dartfmt" },
+				lua = { "stylua" },
+
+				-- C/C++
+				c = { "clangfmt" },
+				h = { "clangfmt" },
+
+				-- Godot 
+				gdscript = { "gdformat" },
+
+				-- Web dev
+				html = { "prettier" },
+				css = { "prettier" },
+				javascript = { "biome" },
+				typescriptreact = { "biome" },
+				typescript = { "biome" },
+				astro = { "prettier" },
+
+				-- Flutter
+				dart = { "dart_format" },
+
+				-- Snake 󱔎
+				python = { "ruff" },
 			},
+
 			format_on_save = {
-				-- lsp_fallback = true,
+				lsp_fallback = true,
+				lsp_format = "fallback",
 				async = false,
 				timeout_ms = 5000,
 			},
-		})
 
-		conform.formatters.dart_format = {
-			prepend_args = { "--line-length 140 $project" },
-			-- The base args are { "-filename", "$FILENAME" } so the final args will be
-			-- { "-i", "2", "-filename", "$FILENAME" }
-		}
+			default_format_opts = {
+				lsp_format = "fallback",
+			},
+		})
 	end,
 }

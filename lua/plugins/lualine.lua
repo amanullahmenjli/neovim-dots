@@ -3,7 +3,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "auto",
+				theme = "tokyonight",
 				sections = {
 					lualine_a = {
 						file = 1,

@@ -1,13 +1,13 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 
-	dependencies = "nvim-tree/nvim-web-devicons",
+	dependencies = "DaikyXendo/nvim-material-icon",
 
 	config = function()
 		local nvimtree = require("nvim-tree")
 
 		nvimtree.setup({
-			-- tree appearance 
+			-- tree appearance
 			view = {
 				width = 30,
 			},
@@ -32,9 +32,11 @@ return {
 				},
 			},
 
+			filters = { custom = { "^.git$", "*.uid" } },
+
 			git = {
 				ignore = true,
 			},
 		})
-	end
+	end,
 }

@@ -7,6 +7,7 @@ return {
 	},
 	config = function()
 		require("flutter-tools").setup({
+			fvm = true,
 			decorations = {
 				statusline = {
 					-- set to true to be able use the 'flutter_tools_decorations.app_version' in your statusline
