@@ -1,5 +1,7 @@
 return {
 	"folke/lazydev.nvim",
+	-- lazydev.nvim is a plugin that properly configures LuaLS for editing
+	-- your Neovim config by lazily updating your workspace libraries.
 	ft = "lua", -- only load on lua files
 	opts = {
 		library = {

@@ -10,9 +10,6 @@ require("core.options")
 -- load keybindings
 require("core.keybindings")
 
--- load the appearance settings
-require("core.appearance")
-
 -- load languages specific configurations
 require("core.langs")
 

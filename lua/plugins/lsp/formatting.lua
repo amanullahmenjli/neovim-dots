@@ -27,6 +27,9 @@ return {
 			},
 
 			formatters_by_ft = {
+				-- Rust 
+				rust = { "rustfmt" },
+
 				-- Configurations
 				jsonc = { "biome" },
 				json = { "biome" },

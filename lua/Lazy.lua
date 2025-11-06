@@ -17,11 +17,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ import = "plugins" },
 	{ import = "plugins.ui" },
-	{ import = "plugins.languages-support" }, -- managing LSPs, formatters, linters and DAPs
+	{ import = "plugins.lang" }, -- managing LSPs, formatters, linters and DAPs
 	{ import = "plugins.lsp" }, -- managing LSPs, formatters, linters and DAPs
-	{ import = "plugins.languages-support.syntax-plugins" }, -- managing LSPs, formatters, linters and DAPs
+	{ import = "plugins.editing" }, -- managing LSPs, formatters, linters and DAPs
+	{ import = "plugins.utilities" }, -- managing LSPs, formatters, linters and DAPs
 })
 
 local handler = function(virtText, lnum, endLnum, width, truncate)

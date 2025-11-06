@@ -2,7 +2,8 @@ return {
 	"neovim/nvim-lspconfig",
 
 	config = function()
-		local lspconfig = require("lspconfig")
+		-- Bash 
+		vim.lsp.enable("bashls")
 
 		-- Rust 
 		vim.lsp.enable("rust_analyzer")
@@ -51,7 +52,7 @@ return {
 		vim.lsp.enable("uv")
 
 		-- Lua 󰢱
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					runtime = {
@@ -78,10 +79,11 @@ return {
 		vim.filetype.add({
 			pattern = {
 				[".*/.yamlfmt"] = "yaml",
+				[".*/.gdextension"] = "toml",
 			},
 		})
 
-		lspconfig.yamlls.setup({
+		vim.lsp.config("yamlls", {
 			filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "yamlfmt" },
 			settings = {
 				yaml = {
@@ -93,7 +95,7 @@ return {
 			},
 		})
 
-		lspconfig.gh_actions_ls.setup({
+		vim.lsp.config("gh_actions_ls", {
 			pattern = {
 				["./github/workflows/.yml"] = "yaml",
 			},
