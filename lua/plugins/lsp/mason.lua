@@ -14,6 +14,10 @@ return {
 					-- Web dev 󰖟
 					"superhtml", -- 
 
+					-- Bash 
+					"bashls",
+					"beautysh",
+
 					-- Rust 
 					"rust_analyzer",
 
