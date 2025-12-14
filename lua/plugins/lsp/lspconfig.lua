@@ -87,6 +87,7 @@ return {
 			pattern = {
 				[".*/.yamlfmt"] = "yaml",
 				[".*/.gdextension"] = "toml",
+				-- [".*/ghostty/config"] = "ghostty"
 			},
 		})
 
