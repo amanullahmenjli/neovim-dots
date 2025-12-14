@@ -1,15 +1,13 @@
 return {
 	"stevearc/conform.nvim",
+	priority = 3000,
 
-	dependencies = { "zapling/mason-conform.nvim" },
+	-- dependencies = { "zapling/mason-conform.nvim" },
 
 	event = { "BufReadPre", "BufNewFile" },
 
 	config = function()
 		local conform = require("conform")
-		local mason_conform = require("mason-conform")
-
-		mason_conform.setup({})
 
 		conform.setup({
 			project = vim.fn.getcwd(),

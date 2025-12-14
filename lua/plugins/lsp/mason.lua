@@ -1,28 +1,39 @@
 return {
 	{
 		"williamboman/mason.nvim",
-
+		priority = 2000,
+		dependencies = {
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+		},
 		config = function()
 			require("mason").setup()
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
+			require("mason-tool-installer").setup({
 				ensure_installed = {
 					-- Web dev 󰖟
 					"superhtml", -- 
 
+					-- Nix 
+					"nil",
+					"nixfmt",
+
+					-- University needs
+					"matlab-language-server",
+
 					-- Bash 
-					"bashls",
+					"bash-language-server",
 					"beautysh",
 
+					-- Fish 
+					"fish-lsp",
+
+					-- Godot 
+					"gdtoolkit",
+
 					-- Rust 
-					"rust_analyzer",
+					"rust-analyzer",
 
 					-- Lua 󰢱
-					"lua_ls",
+					"lua-language-server",
 
 					-- The snake 󱔎
 					"ruff",
@@ -31,20 +42,17 @@ return {
 					"hyprls", -- 
 
 					-- Web dev
-					"astro", -- 
+					"astro-language-server",
 					"biome",
+					"prettier",
 
 					-- C/C++ 
 					"clangd",
 
 					-- Configurations
-					"lua_ls",
 					"efm",
-					"yamlls",
-					--
+					"yaml-language-server",
 				},
-				---@type boolean
-				automatic_installation = true,
 			})
 		end,
 	},

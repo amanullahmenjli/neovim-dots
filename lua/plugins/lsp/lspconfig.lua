@@ -5,17 +5,24 @@ return {
 		-- Bash 
 		vim.lsp.enable("bashls")
 
+		vim.lsp.enable("clangd")
+
 		-- Rust 
 		vim.lsp.enable("rust_analyzer")
 
 		-- Lua 󰢱
 		vim.lsp.enable("lua_ls")
 
+		-- Nix 
+		vim.lsp.enable("nil")
+
 		-- Hyprland 
 		vim.lsp.enable("hyprls")
 
 		-- HTML 
 		vim.lsp.enable("superhtml")
+
+		vim.lsp.enable("matlab_ls")
 
 		-- Typescript 
 		vim.lsp.enable("biome")
