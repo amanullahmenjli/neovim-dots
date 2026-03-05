@@ -24,9 +24,6 @@ return {
 					"nil",
 					"nixfmt",
 
-					-- University needs
-					"matlab-language-server",
-
 					-- Bash 
 					"bash-language-server",
 					"beautysh",
