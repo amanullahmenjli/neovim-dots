@@ -5,6 +5,15 @@ return {
 		-- Bash 
 		vim.lsp.enable("bashls")
 
+		-- Vue 
+		vim.lsp.enable("vue_ls")
+
+		vim.lsp.enable("vtsls")
+
+		vim.lsp.enable('ruff')
+
+		vim.lsp.enable("ty")
+
 		vim.lsp.enable("clangd")
 
 		-- Rust 
@@ -56,7 +65,6 @@ return {
 			end,
 		})
 
-		vim.lsp.enable("uv")
 
 		-- Lua 󰢱
 		vim.lsp.config("lua_ls", {

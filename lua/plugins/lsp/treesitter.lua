@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = 'main',
 
 		-- Load the plugin when a file is opened or created
 		event = { "BufReadPre", "BufNewFile" },
@@ -12,61 +13,74 @@ return {
 			"windwp/nvim-ts-autotag",
 		},
 
+		init = function()
+			vim.api.nvim_create_autocmd('FileType', {
+				callback = function()
+					-- Enable treesitter highlighting and disable regex syntax
+					pcall(vim.treesitter.start)
+					-- Enable treesitter-based indentation
+					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				end,
+			})
+
+
+			local ensure_installed = {
+				--  neovim
+				"lua",
+				"vim",
+				"vimdoc",
+				"query",
+
+				-- 󰖟 web dev
+				"html",
+				"css",
+				"javascript",
+				"typescript",
+				"astro",
+				"tsx",
+
+				--  Godot
+				"gdscript",
+
+				--  data
+				"json",
+				"yaml",
+				"toml",
+
+				--  system configs
+				"hyprlang",
+				"rasi",
+
+				-- 󰅩 scripting
+				"bash",
+
+				--  git
+				"gitignore",
+
+				-- other langs
+				"c",
+				"python",
+
+				--  databases
+				"sql",
+			}
+
+			local alreadyInstalled = require('nvim-treesitter.config').get_installed()
+			local parsersToInstall = vim.iter(ensure_installed)
+				:filter(function(parser)
+					return not vim.tbl_contains(alreadyInstalled, parser)
+				end)
+				:totable()
+			require('nvim-treesitter').install(parsersToInstall)
+
+			-- ...
+		end,
+
 		-- The plugin configurations
 		config = function()
-			local treesitter = require("nvim-treesitter.configs")
+			local treesitter = require("nvim-treesitter")
 
 			treesitter.setup({
-				ensure_installed = {
-					--  neovim
-					"lua",
-					"vim",
-					"vimdoc",
-					"query",
-
-					-- 󰖟 web dev
-					"html",
-					"css",
-					"javascript",
-					"typescript",
-					"astro",
-					"tsx",
-
-					--  Godot
-					"gdscript",
-
-					--  data
-					"json",
-					"yaml",
-					"toml",
-
-					--  system configs
-					"hyprlang",
-					"rasi",
-
-					-- 󰅩 scripting
-					"bash",
-
-					--  git
-					"gitignore",
-
-					-- other langs
-					"c",
-					"python",
-
-					--  databases
-					"sql",
-				},
-
-				-- Automatically install missing parsers when entering buffer
-				auto_install = true,
-
-				-- Enable highlight
-				highlight = { enable = true },
-
-				-- Enable indentation
-				indent = { enable = true },
-
 				incremental_selection = {
 					enable = true,
 					keymaps = {
@@ -150,5 +164,6 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = 'main',
 	},
 }
