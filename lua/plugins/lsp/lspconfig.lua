@@ -5,6 +5,9 @@ return {
 		-- Bash 
 		vim.lsp.enable("bashls")
 
+		-- Nix 
+		vim.lsp.enable("nil_ls")
+
 		-- Vue 
 		vim.lsp.enable("vue_ls")
 

@@ -4,6 +4,9 @@ vim.cmd("set noexpandtab")
 -- set color scheme
 vim.cmd.colorscheme("tokyonight")
 
+-- enable lsp inlay hints
+vim.lsp.inlay_hint.enable(true)
+
 -- disable line wrap
 vim.cmd("set nowrap")
 

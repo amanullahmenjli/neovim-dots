@@ -32,7 +32,7 @@ return {
 				jsonc = { "biome" },
 				json = { "biome" },
 				rasi = { "lsp" },
-				nix = { "nixfmt" },
+				nix = { "alejandra" },
 				yaml = { "yamlfmt" },
 
 				sql = { "sqlfmt" },

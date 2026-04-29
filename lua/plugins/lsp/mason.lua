@@ -22,7 +22,7 @@ return {
 
 					-- Nix 
 					"nil",
-					"nixfmt",
+					"alejandra",
 
 					-- Bash 
 					"bash-language-server",
