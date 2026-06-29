@@ -1,17 +1,13 @@
 return {
 	{
-		"nvim-treesitter/nvim-treesitter",
-		branch = 'main',
-
-		-- Load the plugin when a file is opened or created
-		event = { "BufReadPre", "BufNewFile" },
-
-		build = ":TSUpdate",
+		"romus204/tree-sitter-manager.nvim",
 
 		-- It needs nvim-ts-autotag to autoclose and autorename html tags
-		dependencies = {
-			"windwp/nvim-ts-autotag",
-		},
+		-- dependencies = {
+		-- 	"windwp/nvim-ts-autotag",
+		-- },
+
+
 
 		init = function()
 			vim.api.nvim_create_autocmd('FileType', {

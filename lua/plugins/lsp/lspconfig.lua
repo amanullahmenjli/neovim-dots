@@ -11,6 +11,27 @@ return {
 		-- Vue 
 		vim.lsp.enable("vue_ls")
 
+		-- Ghostty 󰊠
+		vim.lsp.config.ghostty = {
+			cmd = { "ghostty-ls" },
+			filetypes = { "ghostty" },
+		}
+
+		vim.lsp.config.arduino_language_server = {
+			cmd = {
+				"arduino-language-server",
+				"-fqbn", "esp32:esp32:esp32"
+			},
+			initialization_options = {
+				"fqbn", "esp32:esp32:esp32"
+			}
+		}
+
+		-- Arduino 
+		vim.lsp.enable("arduino_language_server")
+
+		vim.lsp.enable("ghostty")
+
 		vim.lsp.enable("vtsls")
 
 		vim.lsp.enable('ruff')
@@ -35,6 +56,9 @@ return {
 		vim.lsp.enable("superhtml")
 
 		vim.lsp.enable("matlab_ls")
+
+		-- Tailwindcss 
+		vim.lsp.enable("tailwindcss-language-server")
 
 		-- Typescript 
 		vim.lsp.enable("biome")

@@ -20,13 +20,16 @@ return {
 				},
 				dartfmt = {
 					command = "dart",
-					args = "format --line-length 140 $project",
+					args = "format $project",
 				},
 			},
 
 			formatters_by_ft = {
 				-- Rust 
 				rust = { "rustfmt" },
+
+				-- Flutter
+				dart = { "dartfmt" },
 
 				-- Configurations
 				jsonc = { "biome" },
@@ -46,6 +49,7 @@ return {
 				-- C/C++
 				c = { "clangfmt" },
 				h = { "clangfmt" },
+				arduino = { "clangfmt" },
 
 				-- Godot 
 				gdscript = { "gdformat" },
@@ -58,8 +62,6 @@ return {
 				typescript = { "biome" },
 				astro = { "prettier" },
 
-				-- Flutter
-				dart = { "dart_format" },
 
 				-- Snake 󱔎
 				python = {
