@@ -6,7 +6,34 @@ return {
 		vim.lsp.enable("bashls")
 
 		-- Nix 
-		vim.lsp.enable("nil_ls")
+		vim.lsp.enable("nixd")
+
+		local flake_expr = "builtins.getFlake (toString ./.)"
+
+		vim.lsp.config.nixd = {
+			cmd = { "nixd" },
+			filetypes = { "nix" },
+			root_markers = { "flake.nix", ".git" },
+			settings = {
+				nixd = {
+					nixpkgs = {
+						expr = string.format("import (%s).inputs.nixpkgs { }", flake_expr),
+					},
+					formatting = { command = { "${pkgs.nixfmt}/bin/alejandra" } },
+					options = {
+						home_manager = {
+							expr = string.format(
+								'(%s).homeConfigurations."mac@MacBook-Pro-de-Mac".options',
+								flake_expr
+							),
+						},
+						nix_darwin = {
+							expr = string.format('(%s).darwinConfigurations."MacBook-Pro-de-Mac".options', flake_expr),
+						},
+					},
+				},
+			},
+		}
 
 		-- Vue 
 		vim.lsp.enable("vue_ls")
@@ -16,15 +43,18 @@ return {
 			cmd = { "ghostty-ls" },
 			filetypes = { "ghostty" },
 		}
+		vim.lsp.enable("ghostty")
 
 		vim.lsp.config.arduino_language_server = {
 			cmd = {
 				"arduino-language-server",
-				"-fqbn", "esp32:esp32:esp32"
+				"-fqbn",
+				"esp32:esp32:esp32",
 			},
 			initialization_options = {
-				"fqbn", "esp32:esp32:esp32"
-			}
+				"fqbn",
+				"esp32:esp32:esp32",
+			},
 		}
 
 		-- Arduino 
@@ -34,7 +64,7 @@ return {
 
 		vim.lsp.enable("vtsls")
 
-		vim.lsp.enable('ruff')
+		vim.lsp.enable("ruff")
 
 		vim.lsp.enable("ty")
 
@@ -91,7 +121,6 @@ return {
 				end
 			end,
 		})
-
 
 		-- Lua 󰢱
 		vim.lsp.config("lua_ls", {

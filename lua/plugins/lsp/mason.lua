@@ -20,10 +20,6 @@ return {
 					-- Web dev 󰖟
 					"superhtml", -- 
 
-					-- Nix 
-					"nil",
-					"alejandra",
-
 					-- Bash 
 					"bash-language-server",
 					"beautysh",
@@ -36,9 +32,6 @@ return {
 
 					-- Rust 
 					"rust-analyzer",
-
-					-- Lua 󰢱
-					"lua-language-server",
 
 					-- The snake 󱔎
 					"ruff",
@@ -57,7 +50,6 @@ return {
 					-- Configurations
 					"efm",
 					"yaml-language-server",
-
 				},
 			})
 		end,
