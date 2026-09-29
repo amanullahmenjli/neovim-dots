@@ -55,13 +55,12 @@ return {
 				gdscript = { "gdformat" },
 
 				-- Web dev
-				html = { "prettier" },
+				html = { "biome" },
 				css = { "prettier" },
 				javascript = { "biome" },
 				typescriptreact = { "biome" },
 				typescript = { "biome" },
 				astro = { "prettier" },
-
 
 				-- Snake 󱔎
 				python = {

@@ -35,34 +35,12 @@ return {
 			},
 		}
 
-		-- Vue 
-		vim.lsp.enable("vue_ls")
-
 		-- Ghostty 󰊠
 		vim.lsp.config.ghostty = {
 			cmd = { "ghostty-ls" },
 			filetypes = { "ghostty" },
 		}
 		vim.lsp.enable("ghostty")
-
-		vim.lsp.config.arduino_language_server = {
-			cmd = {
-				"arduino-language-server",
-				"-fqbn",
-				"esp32:esp32:esp32",
-			},
-			initialization_options = {
-				"fqbn",
-				"esp32:esp32:esp32",
-			},
-		}
-
-		-- Arduino 
-		vim.lsp.enable("arduino_language_server")
-
-		vim.lsp.enable("ghostty")
-
-		vim.lsp.enable("vtsls")
 
 		vim.lsp.enable("ruff")
 
@@ -76,51 +54,10 @@ return {
 		-- Lua 󰢱
 		vim.lsp.enable("lua_ls")
 
-		-- Nix 
-		vim.lsp.enable("nil")
-
-		-- Hyprland 
-		vim.lsp.enable("hyprls")
-
-		-- HTML 
-		vim.lsp.enable("superhtml")
-
 		vim.lsp.enable("matlab_ls")
 
 		-- Tailwindcss 
 		vim.lsp.enable("tailwindcss-language-server")
-
-		-- Typescript 
-		vim.lsp.enable("biome")
-
-		vim.api.nvim_create_autocmd("LspAttach", {
-			callback = function(args)
-				local client = vim.lsp.get_client_by_id(args.data.client_id)
-
-				if not client then
-					return
-				end
-
-				-- When the client is Biome, add an automatic event on
-				-- save that runs Biome's "source.fixAll.biome" code action.
-				-- This takes care of things like JSX props sorting and
-				-- removing unused imports.
-				if client.name == "biome" then
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = vim.api.nvim_create_augroup("BiomeFixAll", { clear = true }),
-						callback = function()
-							vim.lsp.buf.code_action({
-								context = {
-									only = { "source.fixAll.biome" },
-									diagnostics = {},
-								},
-								apply = true,
-							})
-						end,
-					})
-				end
-			end,
-		})
 
 		-- Lua 󰢱
 		vim.lsp.config("lua_ls", {

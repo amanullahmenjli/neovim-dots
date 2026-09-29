@@ -1,11 +1,8 @@
--- open file explorer
-vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeOpen<CR>")
-
--- refresh file explorer
-vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
-
 -- show hover info
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+
+-- clean up search
+vim.keymap.set("n", "\\", "<cmd>noh<CR>")
 
 -- rename a symbol
 vim.keymap.set("n", "<f2>", vim.lsp.buf.rename)

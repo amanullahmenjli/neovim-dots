@@ -15,3 +15,6 @@ require("core.langs")
 
 -- load the autoclose plugin
 require("nvim-autopairs").setup()
+
+-- programming configurations
+require("programming.web_dev")

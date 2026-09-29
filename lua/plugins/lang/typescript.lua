@@ -1,10 +1,11 @@
+-- return {}
 return {
 	"pmizio/typescript-tools.nvim",
 	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	opts = {},
 
 	config = function()
-		require("typescript-tools").setup {
+		require("typescript-tools").setup({
 			settings = {
 				-- spawn additional tsserver instance to calculate diagnostics on it
 				separate_diagnostic_server = true,
@@ -46,8 +47,8 @@ return {
 				jsx_close_tag = {
 					enable = false,
 					filetypes = { "javascriptreact", "typescriptreact" },
-				}
+				},
 			},
-		}
-	end
+		})
+	end,
 }

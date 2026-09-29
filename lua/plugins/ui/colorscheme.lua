@@ -12,6 +12,7 @@ return {
 	{
 		"xiyaowong/transparent.nvim",
 		config = function()
+			vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "none", nocombine = true })
 			-- Optional, you don't have to run setup.
 			require("transparent").setup({
 				-- table: default groups
